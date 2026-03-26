@@ -108,289 +108,225 @@ A interface do sistema deve ser intuitiva e objetiva, com fluxos de venda e cons
 Para **cada caso de uso**, utilize o template abaixo:
 ---
 
-## **UC01 — Cadastrar funcionáiro**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC01 — Cadastrar funcionário**
+**Ator(es):** Administrador ou Gerente.
+**Descrição:** Permite a inclusão de novos colaboradores no sistema, definindo suas credenciais de acesso e perfil (Atendente, Farmacêutico, etc.).
+**Pré-condições:** Usuário autenticado com perfil de gestor; Unidade de trabalho já cadastrada.
+**Pós-condições:** Funcionário habilitado para operar o sistema conforme seu perfil.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O gestor acessa o menu "Configurações" e seleciona "Cadastrar Funcionário".
+2. O sistema exibe o formulário de cadastro (Nome, CPF, Cargo, Unidade, Login e Senha).
+3. O gestor preenche os dados e confirma.
+4. O sistema valida os dados e salva o registro.
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- **FA01 — CPF já cadastrado:** O sistema impede o registro e sugere a edição do perfil existente.
+- **FA02 — Dados incompletos:** O sistema destaca os campos obrigatórios vazios.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** N/A
 
 ---
 
 ## **UC02 — Cadastrar unidade**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es):** Administrador.
+**Descrição:** Registro de uma nova filial ou matriz da rede no sistema.
+**Pré-condições:** Usuário autenticado como Administrador.
+**Pós-condições:** Nova unidade disponível para alocação de estoque e funcionários.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O administrador seleciona "Gestão de Unidades" e "Nova Unidade".
+2. Insere CNPJ, Razão Social, Endereço e Farmacêutico Responsável.
+3. O sistema valida o CNPJ via integração ou máscara de dados.
+4. O administrador confirma a gravação.
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- **FA01 — CNPJ Inválido:** O sistema emite alerta e impede o salvamento.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** N/A
 
 ---
 
 ## **UC03 — Cadastrar produtos**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es):** Gerente ou Administrador.
+**Descrição:** Inclusão de novos medicamentos ou itens de conveniência no catálogo global.
+**Pré-condições:** Usuário autenticado; Categoria do produto existente.
+**Pós-condições:** Produto disponível para entrada de estoque e venda.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O ator acessa "Cadastro de Produtos".
+2. Preenche Nome, Código de Barras, Tipo (Controlado ou Comum) e Preço.
+3. Define o ponto de reposição (estoque mínimo).
+4. O sistema salva os dados e gera o ID único.
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- **FA01 — Código de barras duplicado:** O sistema informa que o produto já existe.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** N/A
 
 ---
 
 ## **UC04 — Cadastrar cliente**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es):** Atendente ou Gerente.
+**Descrição:** Registro de dados pessoais de clientes para histórico de compras e vendas a prazo.
+**Pré-condições:** Usuário autenticado.
+**Pós-condições:** Cliente apto a realizar compras vinculadas ao CPF.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O atendente acessa o módulo "Clientes".
+2. Insere Nome, CPF, Telefone e Endereço.
+3. O sistema valida o CPF.
+4. O atendente confirma o cadastro.
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- **FA01 — Cliente já cadastrado:** O sistema abre a tela de edição/consulta.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Extend:** Este caso de uso estende o **UC06 (Processar Vendas)** quando o cliente não é encontrado.
 
 ---
 
-## **UC05 —  Validar receita**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC05 — Validar receita**
+**Ator(es):** Farmacêutico.
+**Descrição:** Conferência e registro de receita médica para liberação de medicamentos controlados.
+**Pré-condições:** Venda de produto controlado iniciada.
+**Pós-condições:** Item liberado para finalização da venda.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O farmacêutico recebe a solicitação de validação no sistema.
+2. Insere os dados da receita (Médico, CRM, Data).
+3. Anexa ou confirma a retenção da receita.
+4. O sistema marca o item como "Validado".
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- **FA01 — Receita Vencida:** O farmacêutico nega a validação e o sistema bloqueia o item na venda.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Extend:** Estende o **UC06 (Processar Vendas)** em caso de produtos restritos.
 
 ---
 
 ## **UC06 — Processar vendas**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es):** Atendente.
+**Descrição:** Registro de itens, escolha de pagamento e finalização da transação comercial.
+**Pré-condições:** Usuário autenticado; Estoque disponível.
+**Pós-condições:** Venda concluída, estoque baixado e comprovante emitido.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
+1. O atendente lê os códigos de barras dos produtos.
+2. O sistema identifica os itens e soma os valores.
+3. O atendente seleciona a forma de pagamento.
+4. O sistema finaliza a venda e emite o cupom.
 
 ### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+- **FA01 — Pagamento a Prazo:** O sistema gera registro em Contas a Receber (RN01).
+- **FA02 — Estoque insuficiente:** O sistema bloqueia a venda (RN03).
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
+- **Include:** **UC09 (Calcular estoque)** — obrigatório para atualizar o saldo.
+- **Extend:** **UC05 (Validar receita)** e **UC04 (Cadastrar cliente)**.
 
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+
 
 ---
 
-## **UC07 — Nome do Caso de Uso**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC07 — Gerar Alerta de Estoque Baixo**
+**Ator(es):** Sistema (Automático).
+**Descrição:** Notifica o gerente quando um item atinge o ponto de reposição.
+**Pré-condições:** Alteração no saldo de estoque (venda ou perda).
+**Pós-condições:** Alerta visível no painel do gerente.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
-
-### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+1. O sistema verifica o saldo após cada movimentação.
+2. Compara o saldo atual com o ponto de reposição definido no **UC03**.
+3. Se Saldo $\le$ Ponto de Reposição, o sistema gera uma notificação de alerta.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Extend:** Estende o **UC09 (Calcular estoque)**.
 
 ---
 
 ## **UC08 — Registrar compra**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es):** Gerente ou Setor Financeiro.
+**Descrição:** Entrada de mercadorias enviadas por fornecedores.
+**Pré-condições:** Fornecedor cadastrado.
+**Pós-condições:** Estoque atualizado e lançamento em Contas a Pagar.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
-
-### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+1. O ator seleciona "Entrada de Nota Fiscal/Compra".
+2. Insere os produtos e quantidades recebidas.
+3. O sistema atualiza o custo médio e o saldo.
+4. O sistema gera a duplicata no financeiro (RN05).
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** **UC09 (Calcular estoque)**.
 
 ---
 
 ## **UC09 — Calcular estoque**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es):** Sistema.
+**Descrição:** Motor lógico que soma ou subtrai itens do inventário em tempo real.
+**Pré-condições:** Movimentação de estoque iniciada (venda, compra, devolução).
+**Pós-condições:** Saldo de estoque atualizado.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
-
-### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+1. Recebe a quantidade e o tipo de operação (+ ou -).
+2. Localiza o registro do produto na unidade específica.
+3. Aplica a operação aritmética no banco de dados.
+4. Registra o log da movimentação.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** Acionado por **UC06**, **UC08** e **UC12**.
+- **Extend:** **UC07 (Gerar Alerta de Estoque Baixo)**.
 
 ---
 
 ## **UC10 — Gerar relatórios**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+**Ator(es):** Gerente ou Financeiro.
+**Descrição:** Compilação de dados sobre vendas, financeiro e estoque para análise.
+**Pré-condições:** Existência de dados no período selecionado.
+**Pós-condições:** Relatório exibido em tela ou exportado.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
-
-### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+1. O ator escolhe o tipo de relatório (ex: Vendas por período).
+2. Define os filtros (data, unidade).
+3. O sistema processa os dados e gera o visual.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+- **Include:** **Autenticação de Usuário** (Para garantir permissão de acesso).
 
 ---
 
-## **UC11 — Registrar Baixa em Conta a PagarFinanceiro**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC11 — Registrar Baixa em Conta a Pagar**
+**Ator(es):** Financeiro.
+**Descrição:** Baixa manual de boletos de fornecedores ou despesas fixas.
+**Pré-condições:** Conta lançada no sistema com status "Aberta".
+**Pós-condições:** Status alterado para "Paga" e registro de data de pagamento.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
-
-### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
-
-### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+1. O financeiro pesquisa a conta por vencimento ou fornecedor.
+2. Seleciona a conta e informa a data/forma de pagamento.
+3. O sistema confirma a liquidação do título.
 
 ---
 
-## **UC12 — Solicitar transferencia entre unidades**
-**Ator(es):**  
-**Descrição:**  
-**Pré-condições:**  
-**Pós-condições:**  
+## **UC12 — Solicitar transferência entre unidades**
+**Ator(es):** Gerente.
+**Descrição:** Movimentação de itens de uma filial para outra para suprir demandas urgentes.
+**Pré-condições:** Estoque disponível na unidade de origem.
+**Pós-condições:** Saldo debitado na origem e creditado no destino.
 
 ### Fluxo Principal
-1.  
-2.  
-3.  
-4.  
-
-### Fluxos Alternativos / Exceções
-- FA01 —  
-- FA02 —  
+1. O gerente da unidade A solicita itens da unidade B.
+2. O sistema verifica a disponibilidade na unidade B.
+3. Ao confirmar a saída, o sistema abate o estoque de B e adiciona em A.
 
 ### Relacionamentos
-- **Include:** (listar quando aplicável)  
-- **Extend:** (listar quando aplicável)  
+- **Include:** **UC09 (Calcular estoque)**.
+
 
 ### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
 
