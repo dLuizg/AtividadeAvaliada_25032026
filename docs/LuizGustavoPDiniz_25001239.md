@@ -95,11 +95,8 @@ A interface do sistema deve ser intuitiva e objetiva, com fluxos de venda e cons
 ---
 
 # 5. Casos de Uso (mínimo: 10)
-### Inserir **diagrama de casos de uso geral**, demonstrando claramente:
-- os 10 casos
-- relação entre eles e atores
-- pelo menos 3 includes
-- pelo menos 3 extends
+
+<img width="786" height="768" alt="image" src="https://github.com/user-attachments/assets/ec9a3d01-79c2-4e7f-810c-ff97562a769b" />
 
 ---
 
