@@ -8,15 +8,14 @@ Data: 25/03/2026
 ---
 
 # 1. Definição do MVP
-Descreva aqui **qual parte do sistema** foi incluída no seu MVP.  
-Explique claramente:
 
-- O que está **dentro** do MVP  
-- O que está **fora** do MVP  
-- Por que você fez essas escolhas  
+O MVP foca na integração entre o balcão de vendas, o controle de estoque físico e o reflexo financeiro imediato, garantindo conformidade legal e saúde de caixa.
 
-Exemplo de início:  
-> “Meu MVP cobre o processo de venda desde a identificação/cadastro do cliente até a emissão do comprovante, incluindo tratamento de estoque insuficiente.”
+O que está dentro: Ciclo de vendas completo, cadastro de clientes, controle de medicamentos controlados (validação do farmacêutico), gestão de estoque automatizada (vendas, compras, perdas), contas a pagar/receber e relatórios de fechamento diário.
+
+O que está fora: Integração com descontos de laboratórios (PBMs), e-commerce ou aplicativo, gestão de RH/folha de pagamento e análises de inteligência artificial.
+
+Por que essas escolhas: A prioridade é resolver os erros manuais de estoque e a falta de integração financeira citados no cenário da rede Saúde & Vida, garantindo a operação básica com segurança.
 
 ---
 
