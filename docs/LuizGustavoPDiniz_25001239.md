@@ -126,6 +126,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 ### Relacionamentos
 - **Include:** N/A
 
+<img width="786" height="576" alt="image" src="https://github.com/user-attachments/assets/eaf4d900-2a32-48e9-aff1-1835e35ad9fc" />
+
 ---
 
 ## **UC02 — Cadastrar unidade**
@@ -145,6 +147,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 
 ### Relacionamentos
 - **Include:** N/A
+
+<img width="404" height="518" alt="image" src="https://github.com/user-attachments/assets/53968977-5dd0-4f28-ad60-aa84ce908bac" />
 
 ---
 
@@ -166,6 +170,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 ### Relacionamentos
 - **Include:** N/A
 
++<img width="481" height="518" alt="image" src="https://github.com/user-attachments/assets/34e45491-8f88-47ae-8c39-c482760600a6" />
+
 ---
 
 ## **UC04 — Cadastrar cliente**
@@ -186,6 +192,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 ### Relacionamentos
 - **Extend:** Este caso de uso estende o **UC06 (Processar Vendas)** quando o cliente não é encontrado.
 
+<img width="408" height="362" alt="image" src="https://github.com/user-attachments/assets/25f9e947-a726-464a-806b-8cc67eb36795" />
+
 ---
 
 ## **UC05 — Validar receita**
@@ -205,6 +213,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 
 ### Relacionamentos
 - **Extend:** Estende o **UC06 (Processar Vendas)** em caso de produtos restritos.
+ 
+ <img width="486" height="362" alt="image" src="https://github.com/user-attachments/assets/4a7ff7f1-8c8b-4aa0-8c84-a80e95980a3b" />
 
 ---
 
@@ -228,7 +238,7 @@ Para **cada caso de uso**, utilize o template abaixo:
 - **Include:** **UC09 (Calcular estoque)** — obrigatório para atualizar o saldo.
 - **Extend:** **UC05 (Validar receita)** e **UC04 (Cadastrar cliente)**.
 
-
+<img width="484" height="1051" alt="image" src="https://github.com/user-attachments/assets/ad0c7e82-827e-4ae8-bce5-549239aa31a3" />
 
 ---
 
@@ -246,6 +256,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 ### Relacionamentos
 - **Extend:** Estende o **UC09 (Calcular estoque)**.
 
+<img width="347" height="337" alt="image" src="https://github.com/user-attachments/assets/8f7aa9f3-e459-49c0-be2f-23d471cca84b" />
+
 ---
 
 ## **UC08 — Registrar compra**
@@ -262,6 +274,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 
 ### Relacionamentos
 - **Include:** **UC09 (Calcular estoque)**.
+
+<img width="336" height="352" alt="image" src="https://github.com/user-attachments/assets/3178b3c6-cdb4-488e-8981-55ad6127fa82" />
 
 ---
 
@@ -281,6 +295,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 - **Include:** Acionado por **UC06**, **UC08** e **UC12**.
 - **Extend:** **UC07 (Gerar Alerta de Estoque Baixo)**.
 
+<img width="364" height="352" alt="image" src="https://github.com/user-attachments/assets/87b5d2c0-2bb6-46ec-a935-f3ed099373e6" />
+
 ---
 
 ## **UC10 — Gerar relatórios**
@@ -297,6 +313,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 ### Relacionamentos
 - **Include:** **Autenticação de Usuário** (Para garantir permissão de acesso).
 
+<img width="327" height="352" alt="image" src="https://github.com/user-attachments/assets/578c1547-a8d8-45c2-8de6-03eaa548b662" />
+
 ---
 
 ## **UC11 — Registrar Baixa em Conta a Pagar**
@@ -309,6 +327,8 @@ Para **cada caso de uso**, utilize o template abaixo:
 1. O financeiro pesquisa a conta por vencimento ou fornecedor.
 2. Seleciona a conta e informa a data/forma de pagamento.
 3. O sistema confirma a liquidação do título.
+
+<img width="338" height="352" alt="image" src="https://github.com/user-attachments/assets/477362ea-040d-45b1-9515-9708df5c2922" />
 
 ---
 
@@ -326,7 +346,6 @@ Para **cada caso de uso**, utilize o template abaixo:
 ### Relacionamentos
 - **Include:** **UC09 (Calcular estoque)**.
 
-
-### Inserir o diagrama de atividades do Caso de Uso, demonstrando tudo o fluxo princial e alternativos/exceções.
+<img width="594" height="416" alt="image" src="https://github.com/user-attachments/assets/4ce9a1dd-77b7-4c8e-91bc-9383a90d47e5" />
 
 ---
